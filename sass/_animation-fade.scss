@@ -1,0 +1,38 @@
+// _animation-fade.scss
+
+@mixin animation-fade ($duration: 700ms) {
+	& {
+		animation-direction: normal;
+		animation-iteration-count: 1;
+		animation-duration: $duration;
+		animation-fill-mode: forwards;
+		opacity: 0;
+	}
+	&.selected {
+		animation-name: animation-fade-in;
+		opacity: 1;
+	}
+
+	&.last-selected {
+		animation-name: animation-fade-out;
+		opacity: 1;
+	}
+}
+
+@keyframes animation-fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes animation-fade-out {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}

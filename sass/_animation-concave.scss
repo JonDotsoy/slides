@@ -1,0 +1,151 @@
+// _animation-concave.scss
+
+@mixin animation-concave ($duration: 700ms) {
+	& {
+		animation-direction: normal;
+		animation-iteration-count: 1;
+		animation-duration: $duration;
+		animation-fill-mode: forwards;
+		z-index: 20;
+		opacity: 0;
+	}
+
+	&.selected {
+		opacity: 1;
+		z-index: 22;
+		.direction-right & {
+			animation-name: animation-concave-right-to-center;
+		}
+		.direction-left & {
+			animation-name: animation-concave-left-to-center;
+		}
+		.direction-top & {
+			animation-name: animation-concave-down-to-center;
+		}
+		.direction-down & {
+			animation-name: animation-concave-up-to-center;
+		}
+	}
+
+	&.last-selected {
+		opacity: 1;
+		z-index: 21;
+		.direction-right & {
+			animation-name: animation-concave-center-to-left;
+		}
+		.direction-left & {
+			animation-name: animation-concave-center-to-right;
+		}
+		.direction-top & {
+			animation-name: animation-concave-center-to-up;
+		}
+		.direction-down & {
+			animation-name: animation-concave-center-to-down;
+		}
+	}
+}
+
+
+@keyframes animation-concave-left-to-center {
+	from {
+		left: -100%;
+		top: 0%;
+		transform: rotateY(90deg) scale(0.5);
+	}
+	to {
+		left: 0%;
+		top: 0%;
+		transform: rotateY(0deg);
+	}
+}
+
+@keyframes animation-concave-center-to-left {
+	from {
+		left: 0%;
+		top: 0%;
+		transform: rotateY(0deg);
+	}
+	to {
+		left: -100%;
+		top: 0%;
+		transform: rotateY(90deg) scale(0.5);
+	}
+}
+
+@keyframes animation-concave-right-to-center {
+	from {
+		left: 100%;
+		top: 0%;
+		transform: rotateY(-90deg) scale(0.5);
+	}
+	to {
+		left: 0%;
+		top: 0%;
+		transform: rotateY(0deg);
+	}
+}
+
+@keyframes animation-concave-center-to-right {
+	from {
+		left: 0%;
+		top: 0%;
+		transform: rotateY(0deg);
+	}
+	to {
+		left: 100%;
+		top: 0%;
+		transform: rotateY(-90deg) scale(0.5);
+	}
+}
+
+@keyframes animation-concave-down-to-center {
+	from {
+		left: 0%;
+		top: 100%;
+		transform: rotateX(90deg) scale(0.5);
+	}
+	to {
+		left: 0%;
+		top: 0%;
+		transform: rotateX(0deg);
+	}
+}
+
+@keyframes animation-concave-center-to-down {
+	from {
+		left: 0%;
+		top: 0%;
+		transform: rotateX(0deg);
+	}
+	to {
+		left: 0%;
+		top: 100%;
+		transform: rotateX(90deg) scale(0.5);
+	}
+}
+
+@keyframes animation-concave-up-to-center {
+	from {
+		left: 0%;
+		top: -100%;
+		transform: rotateX(-90deg) scale(0.5);
+	}
+	to {
+		left: 0%;
+		top: 0%;
+		transform: rotateX(0deg);
+	}
+}
+
+@keyframes animation-concave-center-to-up {
+	from {
+		left: 0%;
+		top: 0%;
+		transform: rotateX(0deg);
+	}
+	to {
+		left: 0%;
+		top: -100%;
+		transform: rotateX(-90deg) scale(0.5);
+	}
+}

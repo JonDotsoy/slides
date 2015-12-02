@@ -1,0 +1,135 @@
+// _animation-slide.scss
+
+@mixin animation-slide ($duration: 700ms) {
+	& {
+		animation-direction: normal;
+		animation-iteration-count: 1;
+		animation-duration: $duration;
+		animation-fill-mode: forwards;
+		z-index: 20;
+		opacity: 0;
+	}
+
+	&.selected {
+		.direction-right & {
+			animation-name: animation-slide-right-to-center;
+		}
+		.direction-left & {
+			animation-name: animation-slide-left-to-center;
+		}
+		.direction-top & {
+			animation-name: animation-slide-down-to-center;
+		}
+		.direction-down & {
+			animation-name: animation-slide-up-to-center;
+		}
+		opacity: 1;
+		z-index: 22;
+	}
+
+	&.last-selected {
+		.direction-right & {
+			animation-name: animation-slide-center-to-left;
+		}
+		.direction-left & {
+			animation-name: animation-slide-center-to-right;
+		}
+		.direction-top & {
+			animation-name: animation-slide-center-to-up;
+		}
+		.direction-down & {
+			animation-name: animation-slide-center-to-down;
+		}
+		opacity: 1;
+		z-index: 21;
+	}
+}
+
+
+@keyframes animation-slide-left-to-center {
+	from {
+		left: -100%;
+		top: 0%;
+	}
+	to {
+		left: 0%;
+		top: 0%;
+	}
+}
+
+@keyframes animation-slide-center-to-left {
+	from {
+		left: 0%;
+		top: 0%;
+	}
+	to {
+		left: -100%;
+		top: 0%;
+	}
+}
+
+@keyframes animation-slide-right-to-center {
+	from {
+		left: 100%;
+		top: 0%;
+	}
+	to {
+		left: 0%;
+		top: 0%;
+	}
+}
+
+@keyframes animation-slide-center-to-right {
+	from {
+		left: 0%;
+		top: 0%;
+	}
+	to {
+		left: 100%;
+		top: 0%;
+	}
+}
+
+@keyframes animation-slide-down-to-center {
+	from {
+		left: 0%;
+		top: 100%;
+	}
+	to {
+		left: 0%;
+		top: 0%;
+	}
+}
+
+@keyframes animation-slide-center-to-down {
+	from {
+		left: 0%;
+		top: 0%;
+	}
+	to {
+		left: 0%;
+		top: 100%;
+	}
+}
+
+@keyframes animation-slide-up-to-center {
+	from {
+		left: 0%;
+		top: -100%;
+	}
+	to {
+		left: 0%;
+		top: 0%;
+	}
+}
+
+@keyframes animation-slide-center-to-up {
+	from {
+		left: 0%;
+		top: 0%;
+	}
+	to {
+		left: 0%;
+		top: -100%;
+	}
+}

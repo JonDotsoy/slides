@@ -1,0 +1,10 @@
+// _animation-none.scss
+
+@mixin animation-none () {
+	& {
+		opacity: 0;
+	}
+	&.selected {
+		opacity: 1;
+	}
+}

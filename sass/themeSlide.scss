@@ -1,29 +1,22 @@
+/* Animation */
+@import "animation-slide";
+@import "animation-none";
+@import "animation-fade";
+@import "animation-convex";
+@import "animation-concave";
+@import "animation-zoom";
+@import "animation-zoom-inverse";
+
 // themeSlide.scss
 .content-background-slides, .content-slides {
+	perspective: 800px;
 	.background, .slide{
-		transition-duration: 400ms;
 	}
-	.background, .slide{
-		& {
-			opacity: 0;
-		}
-
-		&.selected {
-			transition-property: all;
-			opacity: 1;
-		}
+	.background {
+		@include animation-fade();
 	}
 	.slide {
-		& {
-			// top: 100%;
-			transform: scale(1.2);
-		}
-
-		&.selected {
-			transition-property: all;
-			// top: 0px;
-			transform: scale(1);
-		}
+		@include animation-convex();
 	}
 }
 

@@ -1,0 +1,151 @@
+// _animation-convex.scss
+
+@mixin animation-convex ($duration: 700ms) {
+	& {
+		animation-direction: normal;
+		animation-iteration-count: 1;
+		animation-duration: $duration;
+		animation-fill-mode: forwards;
+		z-index: 20;
+		opacity: 0;
+	}
+
+	&.selected {
+		opacity: 1;
+		z-index: 22;
+		.direction-right & {
+			animation-name: animation-convex-right-to-center;
+		}
+		.direction-left & {
+			animation-name: animation-convex-left-to-center;
+		}
+		.direction-top & {
+			animation-name: animation-convex-down-to-center;
+		}
+		.direction-down & {
+			animation-name: animation-convex-up-to-center;
+		}
+	}
+
+	&.last-selected {
+		opacity: 1;
+		z-index: 21;
+		.direction-right & {
+			animation-name: animation-convex-center-to-left;
+		}
+		.direction-left & {
+			animation-name: animation-convex-center-to-right;
+		}
+		.direction-top & {
+			animation-name: animation-convex-center-to-up;
+		}
+		.direction-down & {
+			animation-name: animation-convex-center-to-down;
+		}
+	}
+}
+
+
+@keyframes animation-convex-left-to-center {
+	from {
+		left: -100%;
+		top: 0%;
+		transform: rotateY(-90deg) scale(0.5);
+	}
+	to {
+		left: 0%;
+		top: 0%;
+		transform: rotateY(0deg);
+	}
+}
+
+@keyframes animation-convex-center-to-left {
+	from {
+		left: 0%;
+		top: 0%;
+		transform: rotateY(0deg);
+	}
+	to {
+		left: -100%;
+		top: 0%;
+		transform: rotateY(-90deg) scale(0.5);
+	}
+}
+
+@keyframes animation-convex-right-to-center {
+	from {
+		left: 100%;
+		top: 0%;
+		transform: rotateY(90deg) scale(0.5);
+	}
+	to {
+		left: 0%;
+		top: 0%;
+		transform: rotateY(0deg);
+	}
+}
+
+@keyframes animation-convex-center-to-right {
+	from {
+		left: 0%;
+		top: 0%;
+		transform: rotateY(0deg);
+	}
+	to {
+		left: 100%;
+		top: 0%;
+		transform: rotateY(90deg) scale(0.5);
+	}
+}
+
+@keyframes animation-convex-down-to-center {
+	from {
+		left: 0%;
+		top: 100%;
+		transform: rotateX(-90deg) scale(0.5);
+	}
+	to {
+		left: 0%;
+		top: 0%;
+		transform: rotateX(0deg);
+	}
+}
+
+@keyframes animation-convex-center-to-down {
+	from {
+		left: 0%;
+		top: 0%;
+		transform: rotateX(0deg);
+	}
+	to {
+		left: 0%;
+		top: 100%;
+		transform: rotateX(-90deg) scale(0.5);
+	}
+}
+
+@keyframes animation-convex-up-to-center {
+	from {
+		left: 0%;
+		top: -100%;
+		transform: rotateX(90deg) scale(0.5);
+	}
+	to {
+		left: 0%;
+		top: 0%;
+		transform: rotateX(0deg);
+	}
+}
+
+@keyframes animation-convex-center-to-up {
+	from {
+		left: 0%;
+		top: 0%;
+		transform: rotateX(0deg);
+	}
+	to {
+		left: 0%;
+		top: -100%;
+		transform: rotateX(90deg) scale(0.5);
+	}
+}

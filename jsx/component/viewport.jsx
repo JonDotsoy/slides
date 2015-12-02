@@ -177,6 +177,21 @@ var Viewport = React.createClass({
 		return (validCol && validRow);
 	},
 
+	generatorClassNameGlobal: function ({
+		directionRight = "direction-right",
+		directionLeft = "direction-left",
+		directionTop = "direction-top",
+		directionDown = "direction-down",
+	} = {}) {
+		let [a, b, c, d] = [this.state.col > this.lastCol, this.state.col < this.lastCol, this.state.row > this.lastRow, this.state.row < this.lastRow];
+		console.log(a, b, c, d);
+
+		if (a) return directionRight;
+		if (b) return directionLeft;
+		if (c) return directionTop;
+		if (d) return directionDown;
+	},
+
 	generatorClassName: function (col, row, {
 		prefix = null,
 		classSelected = "selected",
@@ -203,17 +218,17 @@ var Viewport = React.createClass({
 		let slides = this.state.slides;
 
 		return (
-			<div className="viewport">
+			<div className={["viewport", this.generatorClassNameGlobal()].join(" ")}>
 
 				<div className="content-background-slides">
 					{slides.map((col, indexCol) => col.map((row, indexRow) => {
-						return <div className={["background", ...this.generatorClassName(indexCol, indexRow)].join(" ")} style={{backgroundColor: (row.props["background-color"] || "white")}}></div>
+						return <div className={["background", ...this.generatorClassName(indexCol, indexRow), row.props.className].join(" ")} style={{backgroundColor: (row.props["background-color"] || "white")}}></div>
 					}))}
 				</div>
 
 				<div className="content-slides">
 					{slides.map((col, indexCol) => col.map((row, indexRow) => {
-						return <div className={["slide", ...this.generatorClassName(indexCol, indexRow)].join(" ")}>
+						return <div className={["slide", ...this.generatorClassName(indexCol, indexRow), row.props.className].join(" ")}>
 							{row.props.children}
 						</div>
 					}))}

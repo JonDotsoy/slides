@@ -1,0 +1,43 @@
+// _animation-zoom-inverse.scss
+
+@mixin animation-zoom-inverse ($duration: 700ms) {
+	& {
+		animation-direction: normal;
+		animation-iteration-count: 1;
+		animation-duration: $duration;
+		animation-fill-mode: forwards;
+		z-index: 20;
+		opacity: 0;
+	}
+
+	&.selected {
+		animation-name: animation-zoom-inverse-in;
+	}
+
+	&.last-selected {
+		animation-name: animation-zoom-inverse-out;
+	}
+}
+
+@keyframes animation-zoom-inverse-in {
+	from {
+		opacity: 0;
+		transform: scale(2);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes animation-zoom-inverse-out {
+	from {
+		opacity: 1;
+		transform: scale(1);
+	}
+	to {
+		opacity: 0;
+		transform: scale(0.5);
+	}
+}
+
