@@ -226,6 +226,16 @@ var Viewport = React.createClass({
 		});
 	},
 
+	getOptionsByRow: function (row, {
+		prefixFind = "",
+		defaultNameBackgroundAnimation = "default",
+	} = {}) {
+		let animation = row.props[`${prefixFind}animation`] || defaultNameBackgroundAnimation;
+		let className = row.props.className || "";
+
+		return {animation, className};
+	},
+
 	render: function() {
 		let slides = this.state.slides;
 
@@ -234,13 +244,15 @@ var Viewport = React.createClass({
 
 				<div className="content-background-slides">
 					{slides.map((col, indexCol) => col.map((row, indexRow) => {
-						return <div className={["background", ...this.generatorClassName(indexCol, indexRow), row.props.className, `animation-${(this.props["background-animation"] || "default")}`].join(" ")} style={{backgroundColor: (row.props["background-color"] || "white")}}></div>
+						let {className, animation} = this.getOptionsByRow(row, {prefixFind: "background-"});
+						return <div className={["background", ...this.generatorClassName(indexCol, indexRow), className, `animation-${animation}`].join(" ")} style={{backgroundColor: (row.props["background-color"] || "white")}}></div>
 					}))}
 				</div>
 
 				<div className="content-slides">
 					{slides.map((col, indexCol) => col.map((row, indexRow) => {
-						return <div className={["slide", ...this.generatorClassName(indexCol, indexRow), row.props.className, `animation-${(this.props["animation"] || "default")}`].join(" ")}>
+						let {className, animation} = this.getOptionsByRow(row);
+						return <div className={["slide", ...this.generatorClassName(indexCol, indexRow), className, `animation-${(animation)}`].join(" ")} style={row.props.style}>
 							{row.props.children}
 						</div>
 					}))}

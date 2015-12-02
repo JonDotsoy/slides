@@ -10,11 +10,14 @@
 // themeSlide.scss
 .content-background-slides, .content-slides {
 	perspective: 800px;
-	.background.animation-default {
-		@include animation-fade();
-	}
-	.slide.animation-default {
-		@include animation-convex();
+	.background, .slide {
+		&.animation-default { @include animation-fade(); }
+		&.animation-slide { @include animation-slide(); }
+		&.animation-none { @include animation-none(); }
+		&.animation-convex { @include animation-convex(); }
+		&.animation-concave { @include animation-concave(); }
+		&.animation-zoom { @include animation-zoom(); }
+		&.animation-zoom-inverse { @include animation-zoom-inverse(); }
 	}
 }
 
