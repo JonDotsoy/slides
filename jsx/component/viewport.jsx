@@ -19,7 +19,19 @@ var Viewport = React.createClass({
 		let slides = [];
 		let slidesByMap = [];
 
-		for (let slide of this.props.children) {
+		if (Array.isArray(this.props.children)) {
+			for (let slide of this.props.children) {
+				let col = slide.props.hasOwnProperty("col") ? slide.props.col : 0;
+				let row = slide.props.hasOwnProperty("row") ? slide.props.row : 0;
+
+				if (!slides[col]) {
+					slides[col] = [];
+				}
+
+				slides[col][row] = slide;
+			}
+		} else {
+			let slide = this.props.children;
 			let col = slide.props.hasOwnProperty("col") ? slide.props.col : 0;
 			let row = slide.props.hasOwnProperty("row") ? slide.props.row : 0;
 
@@ -184,7 +196,7 @@ var Viewport = React.createClass({
 		directionDown = "direction-down",
 	} = {}) {
 		let [a, b, c, d] = [this.state.col > this.lastCol, this.state.col < this.lastCol, this.state.row > this.lastRow, this.state.row < this.lastRow];
-		console.log(a, b, c, d);
+		// console.log(a, b, c, d);
 
 		if (a) return directionRight;
 		if (b) return directionLeft;
