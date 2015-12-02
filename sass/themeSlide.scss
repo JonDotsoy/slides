@@ -10,12 +10,10 @@
 // themeSlide.scss
 .content-background-slides, .content-slides {
 	perspective: 800px;
-	.background, .slide{
-	}
-	.background {
+	.background.animation-default {
 		@include animation-fade();
 	}
-	.slide {
+	.slide.animation-default {
 		@include animation-convex();
 	}
 }

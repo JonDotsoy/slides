@@ -234,13 +234,13 @@ var Viewport = React.createClass({
 
 				<div className="content-background-slides">
 					{slides.map((col, indexCol) => col.map((row, indexRow) => {
-						return <div className={["background", ...this.generatorClassName(indexCol, indexRow), row.props.className].join(" ")} style={{backgroundColor: (row.props["background-color"] || "white")}}></div>
+						return <div className={["background", ...this.generatorClassName(indexCol, indexRow), row.props.className, `animation-${(this.props["background-animation"] || "default")}`].join(" ")} style={{backgroundColor: (row.props["background-color"] || "white")}}></div>
 					}))}
 				</div>
 
 				<div className="content-slides">
 					{slides.map((col, indexCol) => col.map((row, indexRow) => {
-						return <div className={["slide", ...this.generatorClassName(indexCol, indexRow), row.props.className].join(" ")}>
+						return <div className={["slide", ...this.generatorClassName(indexCol, indexRow), row.props.className, `animation-${(this.props["animation"] || "default")}`].join(" ")}>
 							{row.props.children}
 						</div>
 					}))}
