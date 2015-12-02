@@ -1,0 +1,99 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.no-margin,
+.viewport h1,
+.viewport h2,
+.viewport h3,
+.viewport h4,
+.viewport h5,
+.viewport h6,
+.viewport p {
+  margin: 0px;
+}
+
+.viewport {
+  font-size: 30px;
+  font-family: sans-serif;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.content-background-slides {
+  position: absolute;
+  z-Index: 5;
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.content-background-slides .background {
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.content-background-slides .background.background-selected {
+  z-index: 10;
+}
+
+.content-slides {
+  overflow: hidden;
+  z-index: 10;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100vh;
+}
+
+.content-slides > .slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+}
+
+.content-slides > .slide.selected {
+  z-index: 15;
+}
+.content-background-slides .background,
+.content-background-slides .slide,
+.content-slides .background,
+.content-slides .slide {
+  transition-duration: 400ms;
+}
+
+.content-background-slides .background,
+.content-background-slides .slide,
+.content-slides .background,
+.content-slides .slide {
+  opacity: 0;
+}
+
+.content-background-slides .background.selected,
+.content-background-slides .slide.selected,
+.content-slides .background.selected,
+.content-slides .slide.selected {
+  transition-property: all;
+  opacity: 1;
+}
+
+.content-background-slides .slide,
+.content-slides .slide {
+  transform: scale(1.2);
+}
+
+.content-background-slides .slide.selected,
+.content-slides .slide.selected {
+  transition-property: all;
+  transform: scale(1);
+}
