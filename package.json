@@ -27,5 +27,24 @@
     "gulp-watch": "^4.3.5",
     "react-chartist": "^0.10.1",
     "vinyl-source-stream": "^1.1.0"
-  }
+  },
+  "name": "slides",
+  "version": "1.0.0",
+  "main": "gulpfile.babel.js",
+  "devDependencies": {},
+  "scripts": {
+  	"build": "gulp build",
+  	"watch": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonDotsoy/slides.git"
+  },
+  "author": "Jon Dotsoy <hi@jon.soy>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JonDotsoy/slides/issues"
+  },
+  "homepage": "https://github.com/JonDotsoy/slides#readme",
+  "description": ""
 }

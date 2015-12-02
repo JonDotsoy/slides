@@ -1,13 +1,12 @@
 {
   "name": "slides",
   "description": "",
-  "main": "",
   "authors": [
     "Jon Dotsoy <hi@jon.soy>"
   ],
   "license": "MIT",
   "moduleType": [],
-  "homepage": "",
+  "homepage": "https://github.com/JonDotsoy/slides",
   "ignore": [
     "**/.*",
     "node_modules",
