@@ -1,0 +1,29 @@
+// themeSlide.scss
+.content-background-slides, .content-slides {
+	.background, .slide{
+		transition-duration: 400ms;
+	}
+	.background, .slide{
+		& {
+			opacity: 0;
+		}
+
+		&.selected {
+			transition-property: all;
+			opacity: 1;
+		}
+	}
+	.slide {
+		& {
+			// top: 100%;
+			transform: scale(1.2);
+		}
+
+		&.selected {
+			transition-property: all;
+			// top: 0px;
+			transform: scale(1);
+		}
+	}
+}
+

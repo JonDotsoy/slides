@@ -1,0 +1,75 @@
+// slide.scss
+
+// Reset Theme
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+.no-margin {
+	margin: 0px;
+}
+
+.viewport {
+	font-size: 30px;
+	font-family: sans-serif;
+	position: relative;
+	height: 100vh;
+	width: 100%;
+
+	@for $i from 1 through 6 {
+		h#{$i} {
+			@extend .no-margin;
+		}
+	}
+	p {
+		@extend .no-margin;
+	}
+}
+
+
+.content-background-slides {
+	position: absolute;
+	z-Index: 5;
+	left: 0px;
+	top: 0px;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+
+	.background {
+		width: 100%;
+		height: 100%;
+		z-index: 9;
+		position: absolute;
+		left: 0px;
+		top: 0px;
+
+		&.background-selected {
+			z-index: 10;
+		}
+	}
+
+}
+
+.content-slides {
+	overflow: hidden;
+	z-index: 10;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100vh;
+
+	> .slide {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		z-index: 11;
+
+		&.selected {
+			z-index: 15;
+		}
+	}
+}
+

@@ -1,0 +1,24 @@
+{
+  "name": "slides",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Jon Dotsoy <hi@jon.soy>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "mdi": "~1.3.41",
+    "react": "~0.14.3",
+    "screenfull.min": "https://raw.githubusercontent.com/sindresorhus/screenfull.js/gh-pages/dist/screenfull.min.js",
+    "director": "~1.2.8"
+  }
+}
